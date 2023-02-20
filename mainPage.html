@@ -2,21 +2,269 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel ="stylesheet" href="css\mainPage.css">
+    <link rel ="stylesheet" href="css/mainPage.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>MainPage</title>
 </head>
 <body>
     <img class="background" src="img/bg.png" alt="err">
-      <div class="body-container">
+    <div class="body-container">
+        <div class="container">
+            <div class="row header-row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <select id="inputState" class="form-control">
+                          <option selected>Факультет</option>
+                          
+                        </select>
+                      </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <select id="inputState" class="form-control">
+                          <option selected>Направление</option>
+                          
+                        </select>
+                      </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <select id="inputState" class="form-control">
+                          <option selected>Группа</option>
+                          
+                        </select>
+                      </div>
+                </div>
+            </div>
+            <div class="table-container">
+                <div class="table-element">                
+                    <a href="#"><img src="img/prev_week.png" alt=""></a>
+                </div>
+                <div class="table-element">
+                    <table class="table">
+                        <thead>
+                          <tr class="row-element">
+                            <th scope="col" class="extra-col"></th>
+                            <th scope="col">
+                                <p class="date">20 февраля</p>
+                                <h6 class="day-tag">понедельник</h6>
+                            </th>
+                            <th scope="col">
+                                <p class="date">20 февраля</p>
+                                <h6 class="day-tag">вторник</h6>
+                            </th>
+                            <th scope="col">
+                                <p class="date">20 февраля</p>
+                                <h6 class="day-tag">среда</h6>
+                            </th>
+                            <th scope="col">
+                                <p class="date">20 февраля</p>
+                                <h6 class="day-tag">четверг</h6>
+                            </th>
+                            <th scope="col">
+                                <p class="date">20 февраля</p>
+                                <h6 class="day-tag">пятница</h6>
+                            </th>
+                            <th scope="col">
+                                <p class="date">20 февраля</p>
+                                <h6 class="day-tag">суббота</h6>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="row-element">
+                            <th scope="row" class="1_pairs">
+                                <p>8:45</p>
+                                <h6>10:20</h6>
+                            </th>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
 
-      </div>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                          </tr>
+                          <tr class="row-element">
+                            <th scope="row"class="2_pairs">
+                                <p>10:35</p>
+                                <h6>12:10</h6>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                          </tr>
+                          <tr class="row-element">
+                            <th scope="row" class="3_pairs">
+                                <p>12:25</p>
+                                <h6>14:00</h6>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="timeslot seminar">
+                                    <b>основы тестирования по</b>
+                                    <b class="font-weight-light">Онлайн</b>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr class="row-element">
+                            <th scope="row" class="4_pairs">
+                                <p>14:45</p>
+                                <h6>16:20</h6>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="timeslot control">
+                                    <b>основы тестирования по</b>
+                                    <b class="font-weight-light">Онлайн</b>
+                                </div>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                          </tr>
+                          <tr class="row-element">
+                            <th scope="row" class="5_pairs">
+                                <p>16:35</p>
+                                <h6>18:10</h6>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="timeslot lection">
+                                    <b>основы тестирования по</b>
+                                    <b class="font-weight-light">Онлайн</b>
+                                </div>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="timeslot practice">
+                                        <b>Программирование</b>
+                                        <b class="font-weight-light">222 (2) аудитория</b>
+                                </div>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+
+                            </td>
+                          </tr>
+                          <tr class="row-element">
+                            <th scope="row" class="6_pairs">
+                                <p>18:25</p>
+                                <h6>20:00</h6>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+    
+                          </tr>
+                          <tr class="">
+                            <th scope="row" class="7_pairs">
+                                <p>20:15</p>
+                                <h6>21:50</h6>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="table-element">                
+                    <a href="#"><img src="img/next_week.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="js/mainPage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/mainPage.js"></script>
 </body>
 </html>
