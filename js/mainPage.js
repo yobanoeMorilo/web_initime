@@ -20,25 +20,18 @@ var group
 async function sendRequest(url){
     const response = await fetch(url, {
         method: 'GET',
-        mode: "no-cors",
-        credentials: "same-origin",
+        mode : 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         }
       })
-    return response.json();
+    return response;
 }
 
 function attachDirections(){
 
 }
-
-function main(){
-    let url = 'https://localhost:7272/api/faculty'
-    sendRequest(url)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    
-}
-
-main()
+let url = 'https://localhost:7272/api/faculty'
+sendRequest(url)
+.then(response => response.json())
+.then (response => console.log(response))
