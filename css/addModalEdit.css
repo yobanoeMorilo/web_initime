@@ -44,6 +44,9 @@
     flex-direction: column;
     justify-content: center;
     width: 360px;
-    color: #878787;
-
+    color: grey;
+}
+.form-select{
+    background-image: url(/img/down-arrow.png);
+    background-color: grey;
 }
