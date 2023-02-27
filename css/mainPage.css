@@ -49,6 +49,7 @@ img.background{
     padding: 0 30px;
 }
 .header-row{
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
