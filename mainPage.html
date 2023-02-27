@@ -15,14 +15,14 @@
             <div class="row header-row">
                 <div class="col-3">
                     <div class="form-group">
-                        <select id="inputFaculty" class="form-control d-none">
+                        <select id="inputFaculty" class="form-select d-none">
                           <option selected>Факультет</option>
                         </select>
                       </div>
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <select id="inputDirection" class="form-control d-none">
+                        <select id="inputDirection" class="form-select d-none">
                           <option selected>Направление</option>
                           
                         </select>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <select id="inputGroup" class="form-control d-none">
+                        <select id="inputGroup" class="form-select d-none">
                           <option selected>Группа</option>
                           
                         </select>
@@ -279,8 +279,62 @@
                     <a href="#"><img src="img/next_week.png" alt=""></a>
                 </div>
             </div>
+
         </div>
     </div>
+
+
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col header">Добавить</div>
+                </div>
+                <div class="modal-body">
+                    <label for="dateTimeFrom" class="form-label apple" >Дата и время</label>
+                    <select id="dateTimeFrom" class="form-control">
+                        <option> </option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="auditoryFrom" class="form-label">Аудитория</label>
+                    <select id="auditoryFrom" class="form-control">
+                        <option> </option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="disciplineFrom" class="form-label">Предмет</label>
+                    <select id="disciplineFrom" class="form-control">
+                        <option> </option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="professorFrom" class="form-label">Преподаватель</label>
+                    <select id="professorFrom" class="form-control">
+                        <option> </option>
+                    </select>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="delModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5 class="modal-title" id="delModal">Удалить выделенную пару?</h5>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" id="deletePair" class="btn btn-delete" data-bs-dismiss="modal">Удалить</button>
+                    <button type="button" id="disableModal" class="btn btn-delete-secondary" data-bs-dismiss="modal">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

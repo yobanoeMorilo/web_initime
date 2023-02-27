@@ -3,12 +3,24 @@ const inputFaculty = $( "#inputFaculty" )
 const inputGroup = $( "#inputGroup" )
 const inputProffessor = $('#inputProffessor')
 const inputAuditory = $('#inputAuditory')
+const addModal = $("#addModal")
+const delModal = $("#delModal")
 
-$("#tableHolder").bind({
-    click: function(event) {
-        console.log(event.target)
+$("#disableModal").on('click', function(){
+  delModal.modal('hide')
+})
+
+
+  $("#tableHolder tbody tr td ").on('click', function(event){
+    console.log(event.target.localName == "td")
+    if(event.target.localName == "td") {
+      addModal.modal('show')
     }
-  });
+
+    if(event.target.localName == "div") {
+      delModal.modal('show')
+    }
+  })
 
 inputDirection.change(function() {
   var str = ""
@@ -34,7 +46,7 @@ inputFaculty.change(function() {
     });
 })
 
-function response(url){
+function response(url, elem){
   sendRequest(url)
     .then(response => {
       if(response.ok){
@@ -42,20 +54,28 @@ function response(url){
       }
     })
     .then(response => {
-      let elem = inputDirection
       attachDirections(response, elem)
     })
 }
 function navTeacher(){
   inputProffessor.removeClass("d-none")
+
+  let url = 'https://localhost:7272/api/auditories'
+  response(url, inputProffessor)
 }
 function navAuditory(){
   inputAuditory.removeClass("d-none")
+
+  let url = 'https://localhost:7272/api/teachers'
+  response(url, inputAuditory)
 }
 function navGroup(){
   inputDirection.removeClass("d-none")
   inputFaculty.removeClass("d-none")
   inputGroup.removeClass("d-none")
+
+  let url = 'https://localhost:7272/api/faculties'
+  response(url, inputFaculty)
 }
 
 async function sendRequest(url){
@@ -85,8 +105,6 @@ function main(){
     case "group" : navGroup()
     break;
   }
-  let url = 'https://localhost:7272/api/faculties'
-  response(url)
 }
 
 main()

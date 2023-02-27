@@ -1,3 +1,9 @@
+
+
+
+/*------------------------------ Main ------------------------------*/
+
+
 .wrong{
     color: red;
 }
@@ -53,19 +59,19 @@ img.background{
     display: flex;
     justify-content: center;
 }
-.form-control{
+.form-group .form-control{
     text-align: center;
     width: 100%;
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
 }
-.form-control:active{
+.form-group .form-control:active{
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
 }
-.form-control:focus{
+.form-group .form-control:focus{
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
@@ -85,4 +91,65 @@ body{
     background-size: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+
+/*------------------------------ Modal ------------------------------*/
+
+
+.modal-header{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #9B8AF0;
+    padding: 10px 0;
+    border-radius: 8px;
+    position: center;
+    width: 200px;
+    display: block;
+    margin: 10px auto;
+}
+.modal-content{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-dialog{
+    margin: 130px auto;
+    padding: 20px;
+    max-width: 300px;
+    height: 1000px;
+}
+
+.form-label{
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: grey;
+}
+.btn-secondary{
+    background-color: #7F8AE8;
+    border-color: #7F8AE8;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+}
+.form-control{
+    background-color: #d7d7d7;
+    color: white;
+}
+
+
+/*------------------------------ Modal Delete------------------------------*/
+.btn-delete{
+    color: white;
+    background-color: #d7d7d7;
+}
+.btn-delete-secondary{
+    color: white;
+    background-color: #9B8AF0;
 }
