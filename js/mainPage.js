@@ -5,22 +5,25 @@ $("#tableHolder").bind({
     }
   });
 
-$( "#inputFaculty" ).change(function() {
+const inputDirection = $( "#inputDirection" )
+const inputFaculty = $( "#inputFaculty" )
+
+inputFaculty.change(function() {
     var str = ""
     $( "#inputFaculty option:selected" ).each(function() {
-      str = $( this ).text()
+      str = $( this )
+      inputDirection.removeClass('d-none')
+      url = `https://localhost:7272/api/direction/${str}`
+      sendRequest(url)
+      .then(response => response.json())
+      .then(response => console.log(response))
     });
-    console.log(str)
 })
 
-var faculty
-var direction
-var group
 
 async function sendRequest(url){
     const response = await fetch(url, {
         method: 'GET',
-        mode : 'no-cors',
         headers: {
             'Content-Type': 'application/json',
         }
@@ -28,10 +31,17 @@ async function sendRequest(url){
     return response;
 }
 
-function attachDirections(){
-
+function attachDirections(response){
+  response.forEach(element => {
+    inputFaculty.append($(`<option id="${element.number}">${element.name}</option>`))
+  });
 }
 let url = 'https://localhost:7272/api/faculty'
 sendRequest(url)
-.then(response => response.json())
-.then (response => console.log(response))
+.then(response => {
+  if(response.ok){
+    return response.json();
+  }
+  //прописать ошибку
+})
+.then(response => attachDirections(response))
