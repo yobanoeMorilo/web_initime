@@ -9,7 +9,7 @@
     position: center;
     width: 200px;
     display: block;
-    margin: 10px auto;
+    margin: 15px auto;
 }
 .modal-content{
     margin: 0 auto;
@@ -27,9 +27,24 @@
 .btn-secondary{
     background-color: #7F8AE8;
     border-color: #7F8AE8;
-    text-align: center;
-    width: 150px;
+    width: 100px;
     height: 40px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.btn-primary{
+    background-color: #A5B2C5;
+    border-color: #A5B2C5;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 .form-label{
