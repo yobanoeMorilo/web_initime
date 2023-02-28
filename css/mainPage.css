@@ -59,19 +59,19 @@ img.background{
     display: flex;
     justify-content: center;
 }
-.form-group .form-control{
+.form-control{
     text-align: center;
     width: 100%;
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
 }
-.form-group .form-control:active{
+.form-control:active{
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
 }
-.form-group .form-control:focus{
+.form-control:focus{
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
@@ -138,7 +138,7 @@ body{
     width: 150px;
     height: 40px;
 }
-.form-control{
+.modal-body .form-control{
     background-color: #d7d7d7;
     color: white;
 }

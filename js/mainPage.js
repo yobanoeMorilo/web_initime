@@ -29,7 +29,7 @@ inputDirection.change(function() {
   $( "#inputDirection option:selected" ).each(function() {
     str = $( this )[0].id
     url = `https://localhost:7272/api/groups/${str}`
-    response(url)
+    response(url, inputGroup)
   });
 })
 
@@ -41,8 +41,9 @@ inputFaculty.change(function() {
 
     $( "#inputFaculty option:selected" ).each(function() {
       str = $( this )[0].id
-      var url = 'https://localhost:7272/api/direction/${str}'
-      response(url)
+      var url = `https://localhost:7272/api/direction/${str}`
+
+      response(url, inputDirection)
     });
 })
 
@@ -54,21 +55,25 @@ function response(url, elem){
       }
     })
     .then(response => {
+      console.log(response)
       attachDirections(response, elem)
     })
 }
+
 function navTeacher(){
   inputProffessor.removeClass("d-none")
+  let url = 'https://localhost:7272/api/teachers'
 
-  let url = 'https://localhost:7272/api/auditories'
   response(url, inputProffessor)
 }
+
 function navAuditory(){
   inputAuditory.removeClass("d-none")
 
-  let url = 'https://localhost:7272/api/teachers'
+  let url = 'https://localhost:7272/api/auditories'
   response(url, inputAuditory)
 }
+
 function navGroup(){
   inputDirection.removeClass("d-none")
   inputFaculty.removeClass("d-none")
