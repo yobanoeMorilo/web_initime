@@ -22,10 +22,20 @@ $("#disableModal").on('click', function(){
     }
   })
 
+inputGroup.change(function() {
+  var str = ""
+  $( "#inputGroup option:selected" ).each(function() {
+    str = $( this )[0].id
+    url = `https://localhost:7272/api/schedule/group/${str}`
+    console.log(url)
+    sendRequest(url)
+  });
+})  
+
 inputDirection.change(function() {
   var str = ""
   $('#inputGroup option').remove()
-  
+  $('#inputGroup').append($(`<option id="placeHolder">Группа</option>`))
   $( "#inputDirection option:selected" ).each(function() {
     str = $( this )[0].id
     url = `https://localhost:7272/api/groups/${str}`
@@ -38,6 +48,8 @@ inputFaculty.change(function() {
     var str = ""
     $('#inputDirection option').remove()
     $('#inputGroup option').remove()
+    $('#inputGroup').append($(`<option id="placeHolder">Группа</option>`))
+    $('#inputDirection').append($(`<option id="placeHolder">Направление</option>`))
 
     $( "#inputFaculty option:selected" ).each(function() {
       str = $( this )[0].id
