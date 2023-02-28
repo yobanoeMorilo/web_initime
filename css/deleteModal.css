@@ -1,0 +1,34 @@
+
+.modal-dialog{
+    margin: 130px auto;
+    padding: 20px;
+    max-width: 500px;
+    height: 285px;
+}
+.modal-body{
+    color: #5F5E5E;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.modal-title{
+    font-size: 22px;
+}
+.btn-secondary{
+    background-color: #A5B2C5;
+    border-color: #A5B2C5;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+}
+.btn-primary{
+    background-color: #7F8AE8;
+    border-color: #7F8AE8;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+}
+.modal-footer{
+    margin: 0 auto;
+    display: block;
+}
