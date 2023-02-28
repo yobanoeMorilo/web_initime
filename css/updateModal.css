@@ -1,0 +1,63 @@
+.modal-header{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #9B8AF0;
+    padding: 10px 0;
+    border-radius: 8px;
+    position: center;
+    width: 200px;
+    display: block;
+    margin: 15px auto;
+}
+.modal-content{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-dialog{
+    margin: 130px auto;
+    padding: 20px;
+    max-width: 300px;
+    height: 1000px;
+}
+
+.btn-secondary{
+    background-color: #7F8AE8;
+    border-color: #7F8AE8;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.btn-primary{
+    background-color: #A5B2C5;
+    border-color: #A5B2C5;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.form-label{
+    height: 100%; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 360px;
+    color: grey;
+}
+.form-select{
+    background-image: url(/img/down-arrow.png);
+    background-color: #d9d9d9;
+}
