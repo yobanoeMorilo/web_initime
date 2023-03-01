@@ -95,7 +95,10 @@ body{
 
 
 /*------------------------------ Modal ------------------------------*/
-
+.modal-footer{
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .modal-header{
     color: white;
@@ -153,3 +156,6 @@ body{
     color: white;
     background-color: #9B8AF0;
 }
+
+
+/*------------------------------ Modal update------------------------------*/
