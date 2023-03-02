@@ -157,5 +157,30 @@ body{
     background-color: #9B8AF0;
 }
 
+.arrows{
+    border: none;
+    border-radius: 30px;
+    padding: 15px;
+    transition: transform 0.20s ease-in-out;
+}
+.arrows:hover {
+    outline: none;
+    box-shadow: none;
+    transform: scale3d(1.2, 1.2, 1.2);
 
-/*------------------------------ Modal update------------------------------*/
+}
+.arrows:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#next_week{
+    background: url("/img/next_week.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#prev_week{
+    background: url("/img/prev_week.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}

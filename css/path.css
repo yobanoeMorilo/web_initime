@@ -45,14 +45,7 @@ img.background{
     font-size: 30px;
     background-color: #7F8AE8;
     border-color: #7F8AE8;
-}
-.btn:hover{
-    background-color: #9B8AF0;
-    border-color: #9B8AF0;
-}
-.btn:active{
-    background-color: #7F8AE8;
-    border-color: #7F8AE8;
+    
 }
 body{
     background: hsla(223, 46%, 66%, 1);
@@ -62,3 +55,33 @@ body{
     background-position: center;
     background-size: cover;
 }
+
+
+/* Button Animation */
+
+
+.icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+span {
+    width: 72%;
+    line-height: inherit;
+    font-size: 22px;
+    text-transform: uppercase;
+    left: 0;
+    transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.400);
+  }
+
+  span:after {
+    content: '';
+    background-color: #9B8AF0;
+    width: 2px;
+    position: absolute;
+    top: 15%;
+    right: -1px;
+  }

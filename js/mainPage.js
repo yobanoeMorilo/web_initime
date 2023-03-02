@@ -7,8 +7,29 @@ const addModal = $("#addModal")
 const delModal = $("#delModal")
 const editModal = $("#editModal")
 const examplePair = $("#template")
+const moveNextWeek = $("#next_week")
+const movePrevWeek = $("#prev_week")
 
 let editing_cell
+let endDate
+let startDate
+let currentDate
+
+
+//пагинация
+
+$("#prev_week").on('click', function(){
+
+  endDate.setDate(endDate.getDate() - 7)
+  startDate.setDate(startDate.getDate() - 7)
+  console.log(startDate.toISOString().slice(0,10), "start\n", "current\n", endDate.toISOString().slice(0,10), "enddate\n")
+})
+
+$("#next_week").on('click', function(){
+  endDate.setDate(endDate.getDate() + 7)
+  startDate.setDate(startDate.getDate() + 7)
+  console.log(startDate.toISOString().slice(0,10), "start\n", endDate.toISOString().slice(0,10), "enddate\n")
+})
 
 //Логика модальных окон
 
@@ -214,8 +235,26 @@ function checkCookies(target){
   }
 }
 
+function dateFinder(){
+    const D = new Date();
+    const startD = new Date();
+
+    currentDate = D.toISOString().slice(0, 10).replace('-', '.').replace('-', '.')
+
+    D.setDate(D.getDate() - D.getDay() + (D.getDay() ? 7 : 0))
+    endDate = D
+    //endDate = D.toISOString().slice(0, 10).replace('-', '.').replace('-', '.')
+
+    startD.setDate(D.getDate() - (D.getDay() ? (D.getDay() - 1) : 6))
+    startDate = startD
+    //startDate = startD.toISOString().slice(0, 10).replace('-', '.').replace('-', '.')
+
+    console.log(startDate, "start\n", currentDate, "current\n", endDate, "enddate\n")
+}
+
 
 function main(){
+  dateFinder()
   var target = (document.cookie).split('=')[1]
 
   if(!checkCookies(target))
