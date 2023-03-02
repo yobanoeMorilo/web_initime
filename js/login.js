@@ -2,8 +2,10 @@ $("#log_in").bind({
     click: function() {
         loginRequest()
     }
-  });
-
+});
+$('#hoverCard').hover(function(){
+    $(".flip-card-inner").addClass('fliped')
+});
 
 function loginRequest(){
     const pwd = $("#pwd_field")
