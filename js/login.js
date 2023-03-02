@@ -1,27 +1,19 @@
 $("#log_in").bind({
     click: function() {
-        window.location.href = "login.html";
-    }
-  });
-
-$("#sign_in").bind({
-    click: function() {
-        RegistrationRequest()
+        loginRequest()
     }
   });
 
 
-function RegistrationRequest(){
+function loginRequest(){
     const pwd = $("#pwd_field")
     const pwd_req = $("#pwd_req_field")
     const email = $("#email_field")
 
 
-    if (pwd.val() != pwd_req.val()){
+    if (pwd.val() == null){
         pwd.addClass("wrong")
-        pwd_req.addClass("wrong")
         $("#pwd").addClass("wrong")
-        $("#pwdR").addClass("wrong")
         return
     }
     

@@ -1,4 +1,3 @@
-const inputDirection = $( "#inputDirection" )
 const inputFaculty = $( "#inputFaculty" )
 const inputGroup = $( "#inputGroup" )
 const inputProffessor = $('#inputProffessor')
@@ -100,35 +99,21 @@ inputGroup.change(function() {
   $( "#inputGroup option:selected" ).each(function() {
     str = $( this )[0].id
     url = `https://localhost:7272/api/schedule/group/${str}`
-    console.log(url)
-    sendRequest(url)
+    //console.log(url)
+    //sendRequest(url)
   });
 })  
 
-inputDirection.change(function() {
-  var str = ""
-  $('#inputGroup option').remove()
-  $('#inputGroup').append($(`<option id="placeHolder">Группа</option>`))
-  $( "#inputDirection option:selected" ).each(function() {
-    str = $( this )[0].id
-    url = `https://localhost:7272/api/groups/${str}`
-    response(url, inputGroup)
-  });
-})
-
-
 inputFaculty.change(function() {
     var str = ""
-    $('#inputDirection option').remove()
     $('#inputGroup option').remove()
     $('#inputGroup').append($(`<option id="placeHolder">Группа</option>`))
-    $('#inputDirection').append($(`<option id="placeHolder">Направление</option>`))
 
     $( "#inputFaculty option:selected" ).each(function() {
       str = $( this )[0].id
-      var url = `https://localhost:7272/api/direction/${str}`
+      //var url = `https://localhost:7272/api/direction/${str}`
 
-      response(url, inputDirection)
+      //response(url, inputGroup)
     });
 })
 
@@ -197,7 +182,6 @@ function navAuditory(){
 }
 
 function navGroup(){
-  inputDirection.removeClass("d-none")
   inputFaculty.removeClass("d-none")
   inputGroup.removeClass("d-none")
 
@@ -223,7 +207,7 @@ function attachDirections(response, elem){
   });
 }
 
-function checkCookies(target){
+function checkRoute(target){
   switch(target){
     case "auditory" : navAuditory()
     return true
@@ -257,10 +241,10 @@ function main(){
   dateFinder()
   var target = (document.cookie).split('=')[1]
 
-  if(!checkCookies(target))
+  if(!checkRoute(target))
     target = sessionStorage.getItem('mainPageSession')
 
-  if(!checkCookies(target))
+  if(!checkRoute(target))
     window.location.href = "path.html";
 }
 

@@ -27,6 +27,8 @@ img.background{
     width: 360px;
 }
 .buttons{
+    display: flex;
+    justify-content: center;
     padding: 0 10px;
 }
 .col{
@@ -50,14 +52,12 @@ label{
 .btn{
     text-align: center;
     width: 100%;
+    font-size: 30px;
+    font-weight: 600;
 }
 .btn-primary{
     background-color: #7F8AE8;
     border-color: #7F8AE8;
-}
-.btn-secondary{
-    background-color: #727272;
-    border-color: #727272;
 }
 .btn-primary:hover{
     background-color: #9B8AF0;
