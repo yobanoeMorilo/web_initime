@@ -17,6 +17,12 @@ img.background{
     background: rgba(255, 255, 255, 0.226);
     box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
+    /*снизу строчки для ванимации*/
+    position: relative;
+    -webkit-animation: mymove 2s; /* Chrome, Safari, Opera */
+    -webkit-animation-delay: none; /* Chrome, Safari, Opera */
+    animation: mymove 2s;
+    animation-delay: none;
 }
 .buttons{
     height: 100%;
@@ -45,14 +51,7 @@ img.background{
     font-size: 30px;
     background-color: #7F8AE8;
     border-color: #7F8AE8;
-}
-.btn:hover{
-    background-color: #9B8AF0;
-    border-color: #9B8AF0;
-}
-.btn:active{
-    background-color: #7F8AE8;
-    border-color: #7F8AE8;
+    
 }
 body{
     background: hsla(223, 46%, 66%, 1);
@@ -62,3 +61,30 @@ body{
     background-position: center;
     background-size: cover;
 }
+
+/*container aniimation*/
+@-webkit-keyframes mymove {
+    from {
+        left: -700px;
+        opacity: 0.5;
+    }
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes mymove {
+    from {
+        left: -700px;
+        opacity: 0.5;
+    }
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+/* Button Animation */
+
+

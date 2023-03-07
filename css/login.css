@@ -50,9 +50,11 @@ img.background{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 360px;
+    width: 400px;
 }
 .buttons{
+    display: flex;
+    justify-content: center;
     padding: 0 10px;
 }
 .col{
@@ -79,14 +81,12 @@ label{
 .btn{
     text-align: center;
     width: 100%;
+    font-size: 30px;
+    font-weight: 600;
 }
 .btn-primary{
     background-color: #7F8AE8;
     border-color: #7F8AE8;
-}
-.btn-secondary{
-    background-color: #727272;
-    border-color: #727272;
 }
 .btn-primary:hover{
     background-color: #9B8AF0;
@@ -104,3 +104,38 @@ body{
     background-position: center;
     background-size: cover;
 }
+
+/* Анимация всё что ниже можно закомментировать */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+.flip-card .fliped {
+    transform: rotateY(180deg);
+  }
+
+.flip-card-front, .flip-card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    color: white;
+    transform: rotateY(180deg);
+  }

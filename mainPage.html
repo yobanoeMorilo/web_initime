@@ -22,14 +22,6 @@
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <select id="inputDirection" class="form-control d-none">
-                          <option selected>Направление</option>
-                          
-                        </select>
-                      </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
                         <select id="inputGroup" class="form-control d-none">
                           <option selected>Группа</option>
                           
@@ -59,7 +51,7 @@
             </div>
             <div class="table-container">
                 <div class="table-element">                
-                    <a href="#"><img src="img/prev_week.png" alt=""></a>
+                    <button class="arrows" id="prev_week"></button>    
                 </div>
                 <div class="table-element">
                     <table class="table" id="tableHolder">
@@ -71,23 +63,23 @@
                                 <h6 class="day-tag">понедельник</h6>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">20 февраля</p>
+                                <p class="date">21 февраля</p>
                                 <h6 class="day-tag">вторник</h6>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">20 февраля</p>
+                                <p class="date">22 февраля</p>
                                 <h6 class="day-tag">среда</h6>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">20 февраля</p>
+                                <p class="date">23 февраля</p>
                                 <h6 class="day-tag">четверг</h6>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">20 февраля</p>
+                                <p class="date">24 февраля</p>
                                 <h6 class="day-tag">пятница</h6>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">20 февраля</p>
+                                <p class="date">25 февраля</p>
                                 <h6 class="day-tag">суббота</h6>
                             </th>
                           </tr>
@@ -162,8 +154,8 @@
                             </td>
                             <td id="6_3">
                                 <div class="timeslot seminar">
-                                    <div class="font-weight-bold">основы тестирования по</div>
-                                    <div>Онлайн</div>
+                                    <div class="font-weight-bold" id="Lesson">основы тестирования по</div>
+                                    <div id="Auditory">Онлайн</div>
                                 </div>
                             </td>
                           </tr>
@@ -177,8 +169,8 @@
                             </td>
                             <td id="2_4">
                                 <div class="timeslot control">
-                                    <div class="font-weight-bold">основы тестирования по</div>
-                                    <div>Онлайн</div>
+                                    <div class="font-weight-bold" id="Lesson">основы тестирования по</div>
+                                    <div id="Auditory">Онлайн</div>
                                 </div>
                             </td>
                             <td id="3_4">
@@ -204,17 +196,17 @@
                             </td>
                             <td id="2_5">
                                 <div class="timeslot lection">
-                                    <div class="font-weight-bold">основы тестирования по</div>
-                                    <div>Онлайн</div>
+                                    <div class="font-weight-bold" id="Lesson">основы тестирования по</div>
+                                    <div id="Auditory">Онлайн</div>
                                 </div>
                             </td>
                             <td id="3_5">
 
                             </td>
                             <td id="4_5">
-                                <div class="timeslot practice">
-                                    <div class="font-weight-bold">Программирование</div>
-                                    <div>222 (2) аудитория</div>
+                                <div class="timeslot practice" id=" some_ID">
+                                    <div class="font-weight-bold" id="Lesson">Программирование</div>
+                                    <div id="Auditory">222 (2) аудитория</div>
                                 </div>
                             </td>
                             <td id="5_5">
@@ -275,8 +267,8 @@
                         </tbody>
                       </table>
                 </div>
-                <div class="table-element">                
-                    <a href="#"><img src="img/next_week.png" alt=""></a>
+                <div class="table-element">
+                    <button class="arrows" id="next_week"></button>                
                 </div>
             </div>
 
@@ -291,36 +283,86 @@
                     <div class="col header">Добавить</div>
                 </div>
                 <div class="modal-body">
-                    <label for="dateTimeFrom" class="form-label apple" >Дата и время</label>
-                    <select id="dateTimeFrom" class="form-control">
-                        <option> </option>
+                    <label for="add_discipline" class="form-label">Предмет</label>
+                    <select id="add_discipline" class="form-control">
+                        <option>Программирование</option>
                     </select>
                 </div>
                 <div class="modal-body">
-                    <label for="auditoryFrom" class="form-label">Аудитория</label>
-                    <select id="auditoryFrom" class="form-control">
-                        <option> </option>
+                    <label for="add_auditory" class="form-label">Аудитория</label>
+                    <select id="add_auditory" class="form-control">
+                        <option>Аудитория</option>
                     </select>
                 </div>
                 <div class="modal-body">
-                    <label for="disciplineFrom" class="form-label">Предмет</label>
-                    <select id="disciplineFrom" class="form-control">
-                        <option> </option>
+                    <label for="add_type" class="form-label">Тип пары</label>
+                    <select id="add_type" class="form-control">
+                        <option>Лекция</option>
+                        <option>Практика</option>
+                        <option>Семинар</option>
+                        <option>Контрольная точка</option>
                     </select>
                 </div>
                 <div class="modal-body">
-                    <label for="professorFrom" class="form-label">Преподаватель</label>
-                    <select id="professorFrom" class="form-control">
-                        <option> </option>
+                    <label for="add_proffessor" class="form-label">Преподаватель</label>
+                    <select id="add_proffessor" class="form-control">
+                        <option>Змеев</option>
                     </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="close_BTN" class="btn btn-delete">Отмена</button>
+                    <button type="button" id="addPairBtn" class="btn btn-secondary" data-bs-dismiss="modal">Добавить</button>
                 </div>
     
             </div>
         </div>
     </div>
 
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col header">Изменить</div>
+                </div>
+                <div class="modal-body">
+                    <label for="edit_discipline" class="form-label" >Предмет</label>
+                    <select id="edit_discipline" class="form-control">
+                        <option>Программирование</option>
+                        <option>Парадигмы программирования</option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="edit_auditory" class="form-label">Аудитория</label>
+                    <select id="edit_auditory" class="form-control">
+                        <option>222</option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="edit_type" class="form-label">Тип пары</label>
+                    <select id="edit_type" class="form-control">
+                        <option>Лекция</option>
+                        <option>Практика</option>
+                        <option>Семинар</option>
+                        <option>Контрольная точка</option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="edit_proffessor" class="form-label">Преподаватель</label>
+                    <select id="edit_proffessor" class="form-control">
+                        <option>Змеев</option>
+                        <option>Лидия</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="delete_btn" class="btn btn-delete" data-bs-dismiss="modal">Удалить</button>
+                    <button type="button" id= "edit_btn_modal" class="btn btn-delete-secondary">Изменить</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
 
-
+    
     <div class="modal fade" id="delModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -333,6 +375,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="timeslot" id = "template">
+        <div class="font-weight-bold" id="Lesson"></div>
+        <div id="Auditory"></div>
     </div>
 
 
