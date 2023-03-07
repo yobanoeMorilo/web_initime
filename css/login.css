@@ -14,9 +14,35 @@ img.background{
     padding: 20px;
     max-width: 600px;
     height: 600px;
-    background: rgba(255, 255, 255, 0.226);
-    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
+    
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(21px);
+    -webkit-backdrop-filter: blur(21px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+    padding: 48px;
+}
+.container :where(h1, p) {
+    color:#ffffff;
+    text-align-last: center;
+    margin: 0;
+}
+
+.container h2{
+    font-size: 48px;
+}
+
+.container p{
+    margin-top: 8px;
+    font-size: 16px;
+    color: #ffffff;
 }
 .forms{
     height: 100%;
@@ -44,11 +70,14 @@ img.background{
     margin-bottom: 30px;
     border-radius: 8px;
 }
+
 label{
     font-size: 18px;
     font-weight: 600;
     color: white;
+
 }
+
 .btn{
     text-align: center;
     width: 100%;
