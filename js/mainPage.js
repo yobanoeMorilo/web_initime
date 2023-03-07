@@ -221,6 +221,7 @@ function checkRoute(target){
 
 function dateFinder(){
     const D = new Date();
+    //date.toJSON(); // this is the JavaScript date as a c# DateTime
     const startD = new Date();
 
     currentDate = D.toISOString().slice(0, 10).replace('-', '.').replace('-', '.')

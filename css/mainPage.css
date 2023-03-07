@@ -56,25 +56,45 @@ img.background{
 }
 .header-row{
     margin: 0 auto;
+    padding: 0px 10px;
     display: flex;
     justify-content: center;
 }
+.form-group{
+    width: 350px;
+}
 .form-control{
-    text-align: center;
+    text-align: left;
+    font-size: 18px;
     width: 100%;
     background-color: #B7CCFE;
     border: #B7CCFE;
     color: white;
 }
-.form-control:active{
+.filter-option{
+    font-size: 18px;
     background-color: #B7CCFE;
+}
+.filter-option-inner-inner{
+    color: white;
+    align-items: center;
+    background-color: #B7CCFE;
+}
+.dropdown-item{
+    background-color: #B7CCFE;
+}
+.bs-searchbox{
+    background-color: #B7CCFE;
+}
+input .form-control{
+    background-color: aliceblue;
+}
+.form-control:active{
     border: #B7CCFE;
     color: white;
 }
 .form-control:focus{
-    background-color: #B7CCFE;
     border: #B7CCFE;
-    color: white;
 }
 .btn-primary:hover{
     background-color: #9B8AF0;

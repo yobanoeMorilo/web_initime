@@ -29,7 +29,7 @@ img.background{
 .buttons{
     display: flex;
     justify-content: center;
-    padding: 0 10px;
+    padding: 0 11px;
 }
 .col{
     padding: 15px 0;
@@ -103,7 +103,7 @@ body{
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-  }
+  } 
   
   /* Style the back side */
   .flip-card-back {
