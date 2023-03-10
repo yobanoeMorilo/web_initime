@@ -9,7 +9,6 @@ $('#hoverCard').hover(function(){
 
 function loginRequest(){
     const pwd = $("#pwd_field")
-    const pwd_req = $("#pwd_req_field")
     const email = $("#email_field")
 
 
@@ -30,8 +29,17 @@ function loginRequest(){
         "email":  email.val(),
         "password": pwd.val()
     }
-    /*sendLoginRequest(data)*/
-    console.log(data)
+    sendLoginRequest(data)
+    .then(response =>{
+        if (response.status == 200){
+            return response.json();
+        }
+    })
+    .then(response => {
+        console.log(response.token, "after")
+        window.sessionStorage.setItem('token', response.token)
+        window.location.href = "path.html"
+    })
 }
 
 function checkEmail(email){
@@ -40,7 +48,7 @@ function checkEmail(email){
 }
 
 async function sendLoginRequest(data){
-    let url = '' 
+    let url = 'https://localhost:7272/api/admin/login' 
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -48,5 +56,5 @@ async function sendLoginRequest(data){
         },
         body: JSON.stringify(data)
     })
-    return response.json()
+    return response;
 }

@@ -20,30 +20,11 @@ $("#auditory_btn").bind({
   }
 });
 
-async function sendRequest(){
-  url = ""
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-    }
-  })
-  return response;
-}
-
-
-function AuthorizeRequest(){
-  sendRequest()
-  .then(response => {
-    return response.json()
-  })
-  .then()
-}
 
 function checkAuthorization(){
-  if (localStorage.getItem('token') == null || AuthorizeRequest())
+  if (sessionStorage.getItem('token') == null)
     window.location.href = "login.html";
 }
 
-//checkAuthorization()
+checkAuthorization()
 

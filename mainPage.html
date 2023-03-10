@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <link rel ="stylesheet" href="css/mainPage.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,29 +18,26 @@
             <div class="row header-row">
                 <div class="col-auto">
                     <div class="form-group">
-                        <select id="inputFaculty" class="form-control d-none">
-                          <option >ФАКУЛЬТЕТ</option>
+                        <label for="inputFaculty" class="label-for-form">Факультет</label>
+                        <select id="inputFaculty" class="form-control ">
+                            <option selected>Факультет</option>
                         </select>
                       </div>
                 </div>
                 <div class="col-auto">
                     <div class="form-group">
-                        <select id="inputGroup" class="form-control d-none selectpicker" multiple data-live-search="true">
-                            <option selected>Группа</option>
-                            <option>972100</option>
-                            <option>972101</option>
-                            <option>972102</option>
-                            <option>972103</option>
+                        <label for="inputGroup" class="label-for-form">Группы</label>
+                        <select id="inputGroup" class="form-control selectpicker" multiple data-live-search="true">
+                            <option selected>Группы</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div class="row header-row">
+            <!--<div class="row header-row">
                 <div class="col-auto">
                     <div class="form-group">
+                        <label for="inputProffessor" class="label-for-form">Профессор</label>
                         <select id="inputProffessor" class="form-control d-none">
-                          <option selected>Профессор</option>
-                          
                         </select>
                       </div>
                 </div>
@@ -58,7 +51,7 @@
                         </select>
                       </div>
                 </div>
-            </div>
+            </div>-->
             <div class="table-container">
                 <div class="table-element">                
                     <button class="arrows" id="prev_week"></button>    
@@ -69,28 +62,40 @@
                           <tr class="row-element">
                             <th scope="col" class="extra-col"></th>
                             <th scope="col" class="date-col">
-                                <p class="date">20 февраля</p>
-                                <h6 class="day-tag">понедельник</h6>
+                                <div class="padding-space">
+                                    <p class="date_1"></p>
+                                    <h6 class="day-tag_1"></h6>
+                                </div>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">21 февраля</p>
-                                <h6 class="day-tag">вторник</h6>
+                                <div class="padding-space">
+                                    <p class="date_2"></p>
+                                    <h6 class="day-tag_2"></h6>
+                                </div>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">22 февраля</p>
-                                <h6 class="day-tag">среда</h6>
+                                <div class="padding-space">
+                                    <p class="date_3"></p>
+                                    <h6 class="day-tag_3"></h6>
+                                </div>
+                                </th>
+                            <th scope="col" class="date-col">
+                                <div class="padding-space">
+                                    <p class="date_4"></p>
+                                    <h6 class="day-tag_4"></h6>
+                                </div>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">23 февраля</p>
-                                <h6 class="day-tag">четверг</h6>
+                                <div class="padding-space">
+                                    <p class="date_5"></p>
+                                    <h6 class="day-tag_5"></h6>
+                                </div>
                             </th>
                             <th scope="col" class="date-col">
-                                <p class="date">24 февраля</p>
-                                <h6 class="day-tag">пятница</h6>
-                            </th>
-                            <th scope="col" class="date-col">
-                                <p class="date">25 февраля</p>
-                                <h6 class="day-tag">суббота</h6>
+                                <div class="padding-space">
+                                    <p class="date_6"></p>
+                                    <h6 class="day-tag_6"></h6>
+                                </div>
                             </th>
                           </tr>
                         </thead>
@@ -163,10 +168,6 @@
 
                             </td>
                             <td id="6_3">
-                                <div class="timeslot seminar">
-                                    <div class="font-weight-bold" id="Lesson">основы тестирования по</div>
-                                    <div id="Auditory">Онлайн</div>
-                                </div>
                             </td>
                           </tr>
                           <tr class="row-element">
@@ -178,10 +179,6 @@
 
                             </td>
                             <td id="2_4">
-                                <div class="timeslot control">
-                                    <div class="font-weight-bold" id="Lesson">основы тестирования по</div>
-                                    <div id="Auditory">Онлайн</div>
-                                </div>
                             </td>
                             <td id="3_4">
 
@@ -205,19 +202,11 @@
 
                             </td>
                             <td id="2_5">
-                                <div class="timeslot lection">
-                                    <div class="font-weight-bold" id="Lesson">основы тестирования по</div>
-                                    <div id="Auditory">Онлайн</div>
-                                </div>
                             </td>
                             <td id="3_5">
 
                             </td>
                             <td id="4_5">
-                                <div class="timeslot practice" id=" some_ID">
-                                    <div class="font-weight-bold" id="Lesson">Программирование</div>
-                                    <div id="Auditory">222 (2) аудитория</div>
-                                </div>
                             </td>
                             <td id="5_5">
                             </td>
@@ -293,20 +282,20 @@
                     <div class="col header">Добавить</div>
                 </div>
                 <div class="modal-body">
-                    <label for="add_discipline" class="form-label">Предмет</label>
-                    <select id="add_discipline" class="form-control">
-                        <option>Программирование</option>
+                    <label for="add_discipline" class="label-for-form">Предмет</label>
+                    <select id="add_discipline" class="form-control selectpicker" data-live-search="true">
+                        <option selected>Программирование</option>
                     </select>
                 </div>
                 <div class="modal-body">
-                    <label for="add_auditory" class="form-label">Аудитория</label>
-                    <select id="add_auditory" class="form-control">
-                        <option>Аудитория</option>
+                    <label for="add_auditory" class="label-for-form">Аудитория</label>
+                    <select id="add_auditory" class="form-control selectpicker" data-live-search="true">
+                        <option selected>Аудитория</option>
                     </select>
                 </div>
                 <div class="modal-body">
-                    <label for="add_type" class="form-label">Тип пары</label>
-                    <select id="add_type" class="form-control">
+                    <label for="add_type" class="label-for-form">Тип пары</label>
+                    <select id="add_type" class="form-control selectpicker" data-live-search="true">
                         <option>Лекция</option>
                         <option>Практика</option>
                         <option>Семинар</option>
@@ -314,16 +303,15 @@
                     </select>
                 </div>
                 <div class="modal-body">
-                    <label for="add_proffessor" class="form-label">Преподаватель</label>
-                    <select id="add_proffessor" class="form-control">
-                        <option>Змеев</option>
+                    <label for="add_proffessor" class="label-for-form">Профессор</label>
+                    <select id="add_proffessor" class="form-control selectpicker" data-live-search="true">
+                        <option selected>Профессор</option>
                     </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="close_BTN" class="btn btn-delete">Отмена</button>
                     <button type="button" id="addPairBtn" class="btn btn-secondary" data-bs-dismiss="modal">Добавить</button>
                 </div>
-    
             </div>
         </div>
     </div>
@@ -387,11 +375,11 @@
         </div>
     </div>
 
-    <div class="timeslot" id = "template">
+    <div id = "template">
         <div class="font-weight-bold" id="Lesson"></div>
         <div id="Auditory"></div>
+        <div id="Proffessor"></div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
