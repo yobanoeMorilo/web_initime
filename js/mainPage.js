@@ -22,12 +22,14 @@ $("#prev_week").on('click', function(){
   endDate.setDate(endDate.getDate() - 7)
   startDate.setDate(startDate.getDate() - 7)
   setDates()
+  getSchedule(makeRequest())
 })
 
 $("#next_week").on('click', function(){
   endDate.setDate(endDate.getDate() + 7)
   startDate.setDate(startDate.getDate() + 7)
   setDates()
+  getSchedule(makeRequest())
 })
 
 //Логика модальных окон
@@ -54,6 +56,7 @@ function pickSelectGroups(){
   selected.each(function(){
     result.push($(this).val());
   });
+  console.log(result, "result")
   return result
 }
 
@@ -73,37 +76,36 @@ function translateType(type){
 $("#addPairBtn").on('click', function(){
 
   let groups = pickSelectGroups()
-  let proff = $("#add_proffessor").val()
+  let proff = $("#add_proffessor")[0]
   let audit = $("#add_auditory").val()
-  let discip = $("#add_discipline").val()
+  let discip = $("#add_discipline")[0]
   let type = translateType($("#add_type").val())
-  let date = new Date(startDate.getTime() + parseInt(requestEditDay-1)*24*60*60*1000).toISOString().slice(0,10).split('-')
-  date = date[1] + '-' + date[2] + '-' + date[0]
+  let date = new Date(startDate.getTime() + parseInt(requestEditDay-1)*24*60*60*1000).toISOString()/*.slice(0,10).split('-')
+  date = date[1] + '-' + date[2] + '-' + date[0]*/
+  let reProf = $(proff).find('option:selected')[0].id
+  let reDiscip = $(discip).find('option:selected')[0].id
 
   var data = {
     "date": date,
     "pairNumber": requestEditPair,
     "type": type,
-    "professor": proff,
+    "professor": reProf,
     "groups": groups,
-    "discipline": discip,
+    "discipline": reDiscip,
     "auditory": audit
   }
 
-  console.log(data)
-  sendPostRequest("https://localhost:7272/api/admin/add/pair", data)
+  console.log(JSON.stringify(data))
+  sendPostRequest("https://localhost:7272/api/admin/add/pair", JSON.stringify(data))
   .then(response => {
     if (response.status == 200)
     return response.json()
   })
   .then(response =>{
-    //получение расписания
+      getSchedule(makeRequest())
       console.log(response)
-
   })
-
   addModal.modal('hide')
-
 })
 
 $("#deletePair").on('click', function(){
@@ -136,12 +138,15 @@ $("#tableHolder tbody tr td ").on('click', function(event){
       var dateEdit = editing_cell.id.split('_')
       requestEditDay = dateEdit[0]
       requestEditPair = dateEdit[1]
+      console.log(dateEdit)
       addPairModal()
       addModal.modal('show')
     }
 
     if(event.target.localName == "div") {
-      editing_cell = event.currentTarget.lastElementChild
+      console.log(event.target.parentElement, "edit pair")
+
+      editPairModal()
       editModal.modal('show')
     }
   })
@@ -158,7 +163,7 @@ inputFaculty.change(function() {
     
 })
 
-inputGroup.change(function() { //--------------------------------------------- get schedule
+function makeRequest(){
   var str = pickSelectGroups()
   var url = `https://localhost:7272/api/schedule/group?`
   str.forEach(element => {
@@ -171,7 +176,11 @@ inputGroup.change(function() { //--------------------------------------------- g
   url += `startDate=${startTime}&`
   url += `endDate=${endTime}`
   $('.timeslot').remove()
-  getSchedule(url)
+  return url
+}
+
+inputGroup.change(function() { //--------------------------------------------- get schedule
+  getSchedule(makeRequest())
 })
 
 $("#add_discipline").change(function(){
@@ -196,7 +205,7 @@ function getSchedule(url){
     }
   })
   .then(response => {
-
+    console.log(response)
     fillPairsSchedule(response.days)
   })
 }
@@ -205,20 +214,19 @@ function fillPairsSchedule(response){
   response.forEach(element => {
     let day = selectDay(element.day.split(' ')[0].split('.')[0])
     element.timeslot.forEach(elem=>{
-      var pair = parseInt(elem.slotNumber)
-      var insertElem = $("#template").clone()
       elem.pairs.forEach(pair =>{
+        var Pair = parseInt(elem.slotNumber)
+        var insertElem = $("#template").clone()
           insertElem.find('#Lesson').text(pair.discipline)
           insertElem.find('#Auditory').text(pair.auditory)
           insertElem.find('#Proffessor').text(pair.proffessor)
           insertElem[0].id = pair.pairId
           insertElem.addClass('timeslot')
           choseType(insertElem, pair.lessonType)
+          console.log($(`#${day}_${Pair}`)[0])
+          $(`#${day}_${Pair}`).append(insertElem)
       })
-      console.log(`#${day}_${pair+1}`)
-      $(`#${day}_${pair+1}`).append(insertElem)
     })
-    console.log(element)
   });
 }
 
@@ -267,6 +275,33 @@ function addPairModal(){
   })
 }
 
+function editPairModal(){
+  /* ----- Предметы в модальном окне-----*/ 
+  var faculty = $("#inputFaculty").find("option:selected")[0].id
+  console.log(faculty)
+  let url = `https://localhost:7272/api/disciplines/${faculty}`
+  sendGetRequest(url)
+  .then(response => {
+    if (response.status == 200){
+      return response.json()
+    }
+  })
+  .then(response => {
+    setOptionsModal($("#edit_discipline"), response)
+  })
+
+  url = `https://localhost:7272/api/auditories`
+  sendGetRequest(url)
+  .then(response => {
+    if (response.status == 200){
+      return response.json()
+    }
+  })
+  .then(response => {
+    setOptionsModal($("#edit_auditory"), response)
+  })
+}
+
 function deletePairModal(elem){
   elem.remove()
 }
@@ -302,7 +337,7 @@ async function sendPutRequest(url){
         'Authorization': "Bearer " + sessionStorage.getItem('token'),
         'Content-Type': 'application/json'
     }),
-    body: JSON.stringify(data)
+    body: data
     })
   return response;
 }
