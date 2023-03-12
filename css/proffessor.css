@@ -8,22 +8,46 @@ img.background{
 .container{
     margin: 130px auto;
     padding: 20px;
-    max-width: 600px;
-    height: 600px;
-    background: rgba(255, 255, 255, 0.226);
-    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-}
-.buttons{
-    height: 100%;
-    margin: 0 auto;
+    max-width: 400px;
+    height: 400px;
+    
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 360px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(21px);
+    -webkit-backdrop-filter: blur(21px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+    padding: 48px;
 }
+.container :where(h1, p) {
+    color:#ffffff;
+    text-align-last: center;
+    margin: 0;
+}
+
+.container h2{
+    font-size: 48px;
+}
+
+.container p{
+    margin-top: 8px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
 .col-auto{
     padding: 30px 0;
+    color: #ffffff;
+
+}
+.col-12{
+    color: #ffffff;
 }
 .header{
     color: white;
@@ -31,16 +55,16 @@ img.background{
     font-size: 30px;
     font-weight: 700;
     background-color: #9B8AF0;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 30px;
     border-radius: 8px;
+    height: 70px;
+    width: 50px;
 }
 .btn{
     text-align: center;
-    width: 100%;
-    font-size: 30px;
-    background-color: #7F8AE8;
-    border-color: #7F8AE8;
+    font-size: 15px;
+    font-weight: 600;
 }
 .btn:hover{
     background-color: #9B8AF0;
@@ -57,4 +81,45 @@ body{
     background-size: no-repeat;
     background-position: center;
     background-size: cover;
+}
+.btn-secondary{
+    background-color: #A5B2C5;
+    border-color: #A5B2C5 ;
+    text-align: center;
+    width: 130px;
+    height: 40px;
+}
+.btn-primary{
+    background-color: #7F8AE8;
+    border-color: #7F8AE8;
+    text-align: center;
+    width: 130px;
+    height: 40px;
+}
+.btn-delete{
+    color: #ffffff;
+    background-color: #7F8AE8;
+    border-color: #7F8AE8;
+}
+.btn-secondary{
+    color: #ffffff;
+    background-color: #7F8AE8;
+    border-color: #7F8AE8;
+    width: 140px;
+    text-align: center;
+}
+.modal-dialog{
+    margin: 80px auto;
+    padding: 10px;
+    max-width: 350px;
+    height: 250px;
+    
+}
+.label-for-form{
+    font-size: 18px;
+    color: #5F5E5E;
+}
+.form-label{
+    font-size: 18px;
+    color: #5F5E5E;
 }
