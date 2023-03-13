@@ -13,6 +13,7 @@ let groupSelected
 let editing_cell
 let endDate
 let startDate
+let editUrl
 
 
 //пагинация
@@ -36,17 +37,35 @@ $("#next_week").on('click', function(){
 
 $("#edit_btn_modal").on('click', function(){
 
-  //запрос
-  let proff = $("#edit_discipline").val()
+  let groups = pickSelectGroups()
+  let proff = $("#edit_proffessor")[0]
   let audit = $("#edit_auditory").val()
-  let discip = $("#edit_discipline").val()
-  let type = $("#edit_type").val()
+  let discip = $("#edit_discipline")[0]
+  let type = translateType($("#edit_type").val())
+  let date = new Date(startDate.getTime() + parseInt(requestEditDay-1)*24*60*60*1000).toISOString()
+  let reProf = $(proff).find('option:selected')[0].id
+  let reDiscip = $(discip).find('option:selected')[0].id
 
-  
+  var data = {
+    "date": date,
+    "pairNumber": requestEditPair,
+    "type": type,
+    "professor": reProf,
+    "groups": groups,
+    "discipline": reDiscip,
+    "auditory": audit
+  }
 
+  sendPutRequest(`https://localhost:7272/api/admin/edit/pair/${editUrl}`, JSON.stringify(data))
+  .then(response => {
+    if (response.status == 200)
+    return response.json()
+  })
+  .then(response =>{
+      getSchedule(makeRequest())
+      console.log(response)
+  })
   editModal.modal('hide')
-
-  editing_cell = null
 })
 
 
@@ -95,7 +114,6 @@ $("#addPairBtn").on('click', function(){
     "auditory": audit
   }
 
-  console.log(JSON.stringify(data))
   sendPostRequest("https://localhost:7272/api/admin/add/pair", JSON.stringify(data))
   .then(response => {
     if (response.status == 200)
@@ -144,8 +162,18 @@ $("#tableHolder tbody tr td ").on('click', function(event){
     }
 
     if(event.target.localName == "div") {
-      console.log(event.target.parentElement, "edit pair")
+      let first_id = event.target.parentElement.id
+      let second_id = event.target.id
+      let pairId 
+      if (first_id.indexOf('_') == -1){
+          pairId = second_id
+      }
+      else{
+          pairId = first_id
+      }
+      console.log(pairId)
 
+      editUrl = pairId
       editPairModal()
       editModal.modal('show')
     }
@@ -239,7 +267,7 @@ function setOptionsModal(elem, response){
   elem.find('option').remove();
   elem.selectpicker('refresh');
   response.forEach(element => {
-    elem.append(`<option value="${element.number}" id='${element.id}'>${element.name}</option>`);
+      elem.append(`<option value="${element.number}" id='${element.id}'>${element.name}</option>`);
 
     elem.val(element.name);
 
@@ -322,21 +350,31 @@ function choseType(elem, type){
 async function sendPostRequest(url, data){
   const response = await fetch(url, {
       method: 'POST',
-      headers: new Headers({
+      headers: {
+        "accept": "*/*" ,
+        "Accept-Encoding" : [
+          "gzip", "deflate", "br"
+        ],
+        "Connection": "keep-alive",
         'Authorization': "Bearer " + sessionStorage.getItem('token'),
         'Content-Type': 'application/json'
-    }),
-    body: JSON.stringify(data)
+    },
+    body: data
     })
   return response;
 }
 async function sendPutRequest(url){
   const response = await fetch(url, {
       method: 'PUT',
-      headers: new Headers({
+      headers: {
+        "accept": "*/*" ,
+        "Accept-Encoding" : [
+          "gzip", "deflate", "br"
+        ],
+        "Connection": "keep-alive",
         'Authorization': "Bearer " + sessionStorage.getItem('token'),
         'Content-Type': 'application/json'
-    }),
+    },
     body: data
     })
   return response;
