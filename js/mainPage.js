@@ -42,12 +42,10 @@ $("#edit_btn_modal").on('click', function(){
   let audit = $("#edit_auditory").val()
   let discip = $("#edit_discipline")[0]
   let type = translateType($("#edit_type").val())
-  let date = new Date(startDate.getTime() + parseInt(requestEditDay-1)*24*60*60*1000).toISOString()
   let reProf = $(proff).find('option:selected')[0].id
   let reDiscip = $(discip).find('option:selected')[0].id
 
   var data = {
-    "date": date,
     "pairNumber": requestEditPair,
     "type": type,
     "professor": reProf,
@@ -55,8 +53,9 @@ $("#edit_btn_modal").on('click', function(){
     "discipline": reDiscip,
     "auditory": audit
   }
-
-  sendPutRequest(`https://localhost:7272/api/admin/edit/pair/${editUrl}`, JSON.stringify(data))
+  console.log(data)
+  console.log(`https://localhost:7272/api/admin/update/pair/${editUrl}`)
+  sendPutRequest(`https://localhost:7272/api/admin/update/pair/${editUrl}`, JSON.stringify(data))
   .then(response => {
     if (response.status == 200)
     return response.json()
@@ -164,6 +163,7 @@ $("#tableHolder tbody tr td ").on('click', function(event){
     if(event.target.localName == "div") {
       let first_id = event.target.parentElement.id
       let second_id = event.target.id
+      console.log(event.target.parentElement.id, event.target.id)
       let pairId 
       if (first_id.indexOf('_') == -1){
           pairId = second_id
@@ -171,7 +171,7 @@ $("#tableHolder tbody tr td ").on('click', function(event){
       else{
           pairId = first_id
       }
-      console.log(pairId)
+      console.log(pairId, "pairid")
 
       editUrl = pairId
       editPairModal()
@@ -222,6 +222,20 @@ $("#add_discipline").change(function(){
   })
   .then(response => {
     setOptionsModal($("#add_proffessor"), response)
+  })
+})
+
+$("#edit_discipline").change(function(){
+  var result = $(this).find("option:selected")[0].id
+  url = `https://localhost:7272/api/teachers/${result}`
+  sendGetRequest(url)
+  .then(response => {
+    if (response.status == 200){
+      return response.json()
+    }
+  })
+  .then(response => {
+    setOptionsModal($("#edit_proffessor"), response)
   })
 })
 
@@ -363,7 +377,7 @@ async function sendPostRequest(url, data){
     })
   return response;
 }
-async function sendPutRequest(url){
+async function sendPutRequest(url, data){
   const response = await fetch(url, {
       method: 'PUT',
       headers: {
